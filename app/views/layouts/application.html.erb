@@ -10,6 +10,93 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header">
+      <h1 class="header__heading">
+      <a href="index.html">
+        CARAVAN
+      </a>
+      </h1>
+      <div class="header__social">
+        <i class="fab fa-facebook-square header__social-icon"></i>
+        <i class="fab fa-twitter-square header__social-icon"></i>
+        <i class="fab fa-instagram header__social-icon"></i>
+      </div>
+    </header>
+
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item">Home</li>
+        <li class="nav__item">About</li>
+        <li class="nav__item">Topic</li>
+      </ul>
+    </nav>
+
+    <!-- main-visual用のdiv -->
+    <div class="main-visual">
+      <div class="main-visual__content">
+        <p class="main-visual__text">
+          The world is a book<br />
+          and those who do not travel<br />
+          read only one page.
+        </p>
+        <p class="main-visual__name">
+          St. Augustine
+        </p>
+      </div>
+    </div>
+
+    <main>
+      <%= yield %>
+      <div class="sidebar">
+        <section class="sidebar__popular">
+          <h2 class="sidebar__heading sidebar__common-heading">Popular</h2>
+          <div class="sidebar__contents">
+            <p class="sidebar__popular-text">
+              To solve old problems,<br />study new species
+            </p>
+            <p class="sidebar__popular-text">
+              Why Earth may someday<br />look like Mars
+            </p>
+            <p class="sidebar__popular-text">
+              What will humans look<br />like in 100 years?
+            </p>
+            <p class="sidebar__popular-text">
+              How to grow a forest<br />in your backyard
+            </p>
+            <p class="sidebar__popular-text">
+              How humans could evolve<br />to survive in space
+            </p>
+          </div>
+        </section>
+        <section class="sidebar__instagram">
+          <h2 class="sidebar__instagram-heading sidebar__common-heading">Instagram</h2>
+          <div class="sidebar__instagram-contents">
+            <div class="sidebar__instagram-box"></div>
+            <div class="sidebar__instagram-box"></div>
+            <div class="sidebar__instagram-box"></div>
+            <div class="sidebar__instagram-box"></div>
+            <div class="sidebar__instagram-box"></div>
+            <div class="sidebar__instagram-box"></div>
+          </div>
+        </section>
+        <section class="sidebar__categories">
+          <h2 class="sidebar__categories-heading sidebar__common-heading">Categories</h2>
+          <div class="sidebar__contents">
+            <p class="sidebar__categories-text">Technology(15)</p>
+            <p class="sidebar__categories-text">Business(23)</p>
+            <p class="sidebar__categories-text">Entertainment(12)</p>
+            <p class="sidebar__categories-text">Nature(32)</p>
+            <p class="sidebar__categories-text">Education(9)</p>
+            <p class="sidebar__categories-text">Adventure(23)</p>
+            <p class="sidebar__categories-text">Communication(14)</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">© All rights reserved by Infratop.Inc.</p>
+    </footer>
+
   </body>
 </html>
