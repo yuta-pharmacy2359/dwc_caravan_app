@@ -25,7 +25,9 @@
 
     <nav class="nav">
       <ul class="nav__list">
-        <li class="nav__item">Home</li>
+        <li class="nav__item">
+          <%= link_to "Home", root_path %>
+        </li>
         <li class="nav__item">About</li>
         <li class="nav__item">Topic</li>
       </ul>
@@ -41,6 +43,9 @@
         </p>
         <p class="main-visual__name">
           St. Augustine
+        </p>
+        <p class="main-visual__blogs-new">
+          <%= link_to "Write New Blog", new_blog_path, class: "main-visual__blogs-new" %>
         </p>
       </div>
     </div>
