@@ -1,16 +1,10 @@
-<h1>編集画面</h1>
+<section class="edit-blog">
+  <h1 class="edit-blog__heading">Edit Blog</h1>
 
-<%= form_with model:@blog, local:true do |f| %>
+  <div class="edit-blog__form">
 
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
+    <%= render "list_blog_form", blog: @blog %>
 
-  <h4>カテゴリー</h4>
-  <%= f.text_field :category %>
+  </div>
 
-  <h4>本文</h4>
-  <%= f.text_area :body %>
-
-  <%= f.submit "保存" %>
-
-<% end %>
+</section>

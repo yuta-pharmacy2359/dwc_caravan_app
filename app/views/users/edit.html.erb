@@ -1,0 +1,32 @@
+<section class="edit-user">
+  <h1 class="edit-user__heading">Edit User</h1>
+
+  <div class="edit-user__form">
+
+    <%= form_with model: @user, local: true do |f| %>
+
+      <div class="edit-user__form-field">
+        <%= f.label :name, "名前" %><br />
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="edit-user__form-field">
+        <%= f.label :introduce, "自己紹介" %><br />
+        <%= f.text_area :introduce %>
+      </div>
+
+      <div class="edit-user__form-field">
+        <%= f.label :profile_image, "画像" %><br />
+        <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "img/no_image_square.jpg", size: '100x100' %><br />
+        <%= f.attachment_field :profile_image %>
+      </div>
+
+      <div class="edit-user__form-field">
+        <%= f.submit "変更を保存" %>
+      </div>
+
+    <% end %>
+
+  </div>
+
+</section>

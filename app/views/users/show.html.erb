@@ -1,0 +1,50 @@
+<section class="user-show">
+
+  <div class="user-show__profile">
+    <h2 class="user-show__profile-heading">User Profile</h2>
+    <div class="user-show__profile-image">
+      <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "img/no_image_square.jpg", size: '100x100' %>
+    </div>
+    <section class="user-show__profile-text">
+      <div class="user-show__profile-name">
+        name<br />
+        <%= @user.name %>
+      </div>
+      <div class="user-show__profile-introduction">
+        introduction<br />
+        <%= @user.introduction %>
+      </div>
+    </section>
+    <div class="user-show__profile-btn">
+      <% if @user.id == current_user.id %>
+        <p class="user-show__profile-btn-edit">
+          <%= link_to "プロフィール編集", edit_user_path(@user) %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user-show__blogs">
+    <h2 class="user-show__blogs-heading">Blogs</h2>
+    <div class="user-show__blogs-box">
+      <% @blogs.each do |blog| %>
+        <div class="user-show__blogs-item">
+          <div class="user-show__blogs-image">
+            <%= attachment_image_tag blog, :image, class: "user-show__blogs-image" %>
+          </div>
+          <section class="user-show__blog-text">
+            <h3 class="user-show__blog-text-heading">
+              <%= link_to blog.title, blog_path(blog) %>
+            </h3>
+            <p class="user-show__blog-date">
+              <%= blog.created_at %></p>
+            <span class="user-show__blog-category">
+              <%= blog.category %>
+            </span>
+          </section>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</section>

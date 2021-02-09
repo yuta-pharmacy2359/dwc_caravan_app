@@ -18,7 +18,7 @@
           <!-- created_at部分 ここまで -->
         </p>
       </div>
-      <%= image_tag "img/forest.jpg", class:"single-blog__box-image" %>
+      <%= attachment_image_tag @blog, :image, class:"single-blog__box-image" %>
       <p class="single-blog__box-text">
         <!-- body部分 下で変更します -->
         <%= @blog.body %>

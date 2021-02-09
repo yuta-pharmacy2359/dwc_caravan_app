@@ -28,7 +28,7 @@ a {
   text-decoration: none;
 }
 
-.header,.nav,h2,.main-visual,.footer {
+.header,.nav,h2,.main-visual,.footer,.new-blog,.edit-blog {
   font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
 }
 
@@ -118,6 +118,7 @@ main {
   }
   &__image {
     height: 180px;
+    width: 180px;
   }
   &__text {
     padding: 25px 0 0 30px;
@@ -304,4 +305,28 @@ main {
     line-height: 0.6;
     margin-bottom: 30px;
   }
+}
+
+.new-blog {
+  width: 480px;
+  margin-right: 50px;
+  &__heading {
+    border-bottom: 8px solid #f7f7f7;
+    text-align: center;
+    line-height: 0.6;
+  }
+}
+
+.edit-blog {
+  width: 480px;
+  margin-right: 50px;
+  &__heading {
+    border-bottom: 8px solid #f7f7f7;
+    text-align: center;
+    line-height: 0.6;
+  }
+}
+
+.blog-form__field {
+  margin-top: 30px;
 }

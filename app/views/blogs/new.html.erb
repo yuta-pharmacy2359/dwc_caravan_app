@@ -1,16 +1,10 @@
-<h1>新規投稿</h1>
+<section class="new-blog">
+  <h1 class="new-blog__heading">New Blog</h1>
 
-<%= form_with model:@blog, local:true do |f| %>
+  <div class="new-blog__form">
 
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
+    <%= render "list_blog_form", blog: @blog %>
 
-  <h4>カテゴリー</h4>
-  <%= f.text_field :category %>
+  </div>
 
-  <h4>本文</h4>
-  <%= f.text_area :body %>
-
-  <%= f.submit "投稿" %>
-
-<% end %>
+</section>
