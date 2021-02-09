@@ -283,3 +283,25 @@ main {
     font-size: 10px;
   }
 }
+
+.sign-up {
+  width: 520px;
+  margin-right: 50px;
+  &__heading {
+    border-bottom: 8px solid #f7f7f7;
+    text-align: center;
+    line-height: 0.6;
+    margin-bottom: 30px;
+  }
+}
+
+.Log-in {
+  width: 520px;
+  margin-right: 50px;
+  &__heading {
+    border-bottom: 8px solid #f7f7f7;
+    text-align: center;
+    line-height: 0.6;
+    margin-bottom: 30px;
+  }
+}

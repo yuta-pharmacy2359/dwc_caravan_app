@@ -30,6 +30,18 @@
         </li>
         <li class="nav__item">About</li>
         <li class="nav__item">Topic</li>
+        <% if user_signed_in? %>
+        <li class="nav__item">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        </li>
+        <% else %>
+        <li class="nav__item">
+          <%= link_to "Sign up", new_user_registration_path %>
+        </li>
+        <li class="nav__item">
+          <%= link_to "Log in", new_user_session_path %>
+        </li>
+        <% end %>
       </ul>
     </nav>
 
