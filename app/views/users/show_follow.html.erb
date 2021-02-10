@@ -1,0 +1,6 @@
+<% provide(:title, @title) %>
+
+<div class="show-follow">
+  <h2 class="show-follow__heading"><%= @title %></h2>
+  <%= render 'users/user_index', users: @users %>
+</div>

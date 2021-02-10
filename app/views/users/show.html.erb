@@ -2,6 +2,7 @@
 
   <div class="user-show__profile">
     <h2 class="user-show__profile-heading">User Profile</h2>
+    <div class="user-show__profile-container">
     <div class="user-show__profile-image">
       <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "img/no_image_square.jpg", size: '100x100' %>
     </div>
@@ -14,6 +15,20 @@
         introduction<br />
         <%= @user.introduction %>
       </div>
+      <div class="user-show__profile-relationship">
+        <% @user ||= current_user %>
+          <a href="<%= following_user_path(@user) %>">
+            <%= @user.following.count %> following
+          </a>
+          <a href="<%= followers_user_path(@user) %>">
+            <%= @user.followers.count %> followers
+          </a>
+      </div>
+      <div class="user-show__profile-relationship-btn">
+        <% if @user != current_user %>
+          <%= render 'users/list_follow_form', user: @user %>
+        <% end %>
+      </div>
     </section>
     <div class="user-show__profile-btn">
       <% if @user.id == current_user.id %>
@@ -21,6 +36,7 @@
           <%= link_to "プロフィール編集", edit_user_path(@user) %>
         </p>
       <% end %>
+    </div>
     </div>
   </div>
 

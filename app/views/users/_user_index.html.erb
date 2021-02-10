@@ -1,0 +1,48 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.each do |user| %>
+      <tr>
+        <td>
+          <%= link_to user_path(user.id) do %>
+            <%= attachment_image_tag user, :profile_image, format: "jpeg", fallback: "img/no_image_square.jpg", size: "40x40" %>
+          <% end %>
+        </td>
+        <td>
+          <%= user.name %>
+        </td>
+        <td>
+          <%= "フォロー数: #{user.following.count}" %>
+        </td>
+        <td>
+          <%= "フォロワー数: #{user.followers.count}" %>
+        </td>
+        <td>
+          <% if user != current_user %>
+            <% if current_user.following?(user) %>
+              <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id), html: {method: :delete}, local: true) do |f| %>
+                <%= f.submit "フォローを外す", class: "btn btn-secondary" %>
+              <% end %>
+            <% else %>
+              <%= form_with(model: current_user.active_relationships.build, local: true) do |f| %>
+                <div><%= hidden_field_tag :followed_id, user.id %></div>
+                <%= f.submit "フォローする", class: "btn btn-primary" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "Show", user_path(user.id) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate users %>
+
