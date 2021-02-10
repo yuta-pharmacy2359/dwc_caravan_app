@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "blogs#index"
   resources :blogs, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :blogcomments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
 end

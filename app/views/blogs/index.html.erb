@@ -9,7 +9,12 @@
             <h3 class="blog__text-heading"><%= link_to blog.title, blog_path(blog) %></h3>
             <p class="blog__date"><%= blog.created_at %></p>
             <span class="blog__category"><%= blog.category %></span>
-            <p><%= link_to "#{blog.blogcomments.count}件のコメント", blog_path(blog.id) %></p>
+            <p class="blog__favorite-<%= blog.id %>">
+              <%= render "favorites/list_favorite", blog: blog %>
+            </p>
+            <p class="blog__comments-count">
+              <%= link_to "#{blog.blogcomments.count}件のコメント", blog_path(blog.id) %>
+            </p>
           </section>
         </div>
       <% end %>

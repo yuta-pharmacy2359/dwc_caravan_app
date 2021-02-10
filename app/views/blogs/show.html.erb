@@ -17,6 +17,9 @@
           <%= @blog.created_at %>
           <!-- created_at部分 ここまで -->
         </p>
+        <p class="single-blog__box-favorite-<%= @blog.id %>">
+          <%= render "favorites/list_favorite", blog: @blog %>
+        </p>
       </div>
       <%= attachment_image_tag @blog, :image, class:"single-blog__box-image" %>
       <p class="single-blog__box-text">
