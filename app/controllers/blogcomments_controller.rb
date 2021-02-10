@@ -1,4 +1,5 @@
 class BlogcommentsController < ApplicationController
+  before_action :baria_user, {only: [:destroy]}
 
   def create
     @blog = Blog.find(params[:blog_id])
@@ -18,6 +19,12 @@ class BlogcommentsController < ApplicationController
 
   def blogcomment_params
     params.require(:blogcomment).permit(:comment)
+  end
+
+  def baria_user
+    unless User.find(params[:id]).id.to_i == current_user.id
+      redirect_to user_path(current_user.id)
+    end
   end
 
 end

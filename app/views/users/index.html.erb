@@ -1,0 +1,24 @@
+<section class="users">
+  <h2 class="users__heading">Users</h2>
+  <div class="users__box">
+    <table class="users__box-item-container">
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to user_path(user.id) do %>
+              <%= attachment_image_tag user, :profile_image, format: "jpeg", fallback: "img/no_image_square.jpg", size: "110x110" %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to user_path(user.id) do %>
+              <%= user.name %>
+            <% end %>
+          </td>
+          <td></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</section>
+
+<%= paginate @users %>

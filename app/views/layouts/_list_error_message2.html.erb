@@ -1,0 +1,6 @@
+<% if blogcomment.errors.any? %>
+  <%= blogcomment.errors.count %>件のエラーが発生しました
+  <% blogcomment.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>

@@ -3,6 +3,8 @@
 
   <div class="new-blog__form">
 
+    <%= render "layouts/list_error_message", blog: @blog %>
+
     <%= render "list_blog_form", blog: @blog %>
 
   </div>

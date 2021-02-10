@@ -3,6 +3,10 @@
 
   <div class="edit-blog__form">
 
+    <div class="edit-blog__error-messages">
+      <%= render "layouts/list_error_message", blog: @blog %>
+    </div>
+
     <%= render "list_blog_form", blog: @blog %>
 
   </div>

@@ -21,14 +21,16 @@
           <%= render "favorites/list_favorite", blog: @blog %>
         </p>
       </div>
-      <%= attachment_image_tag @blog, :image, class:"single-blog__box-image" %>
+      <%= attachment_image_tag @blog, :image, class:"single-blog__box-image", fallback: "img/no_image_square.jpg" %>
       <p class="single-blog__box-text">
         <!-- body部分 下で変更します -->
         <%= @blog.body %>
         <!-- body部分 ここまで -->
       </p>
-      <%= link_to "編集", edit_blog_path(@blog) %>
-      <%= link_to "削除", blog_path(@blog), method: :delete  %>
+      <% if current_user == @blog.user %>
+        <%= link_to "編集", edit_blog_path(@blog) %>
+        <%= link_to "削除", blog_path(@blog), method: :delete  %>
+      <% end %>
       <div class="single-blog__blogcomments">
         <h2 class="single-blog__blogcomments-heading">Comments</h2>
         <div class="single-blog__blogcomments-count">
@@ -53,7 +55,7 @@
                   </td>
                   <% if blogcomment.user == current_user %>
                     <td>
-                      <%= link_to "Destroy", blog_blogcomment_path(blogcomment.blog, blogcomment.id), method: :delete, local: true, "data-confirm" => "本当に消しますか？" %>
+                      <%= link_to "削除", blog_blogcomment_path(blogcomment.blog, blogcomment.id), method: :delete, local: true, "data-confirm" => "本当に消しますか？" %>
                     </td>
                   <% else %>
                     <td></td>
@@ -71,15 +73,15 @@
         </div>
       </div>
       <div class="single-blog__box-author-case">
-        <div class="single-blog__box-author-image"></div>
+        <div class="single-blog__box-author-image">
+          <%= attachment_image_tag @blog.user, :profile_image, format: "jpeg", fallback: "img/no_image_square.jpg", size: "110x110" %>
+        </div>
         <div class="single-blog__box-author-box">
-          <p class="single-blog__box-author-name">By JOHN SMITH / Photographer</p>
+          <p class="single-blog__box-author-name">
+            By <%= link_to "#{@blog.user.name}", user_path(@user) %>
+          </p>
           <p class="single-blog__box-author-text">
-            His black and white landscapes, often captured at times<br>
-            of the day and night when the light is fleeting, or in poor<br>
-            weather conditions, such as rain, fog, or snow, are<br>
-            reminiscent of the calm in a storm all with an ethereal<br>
-            quality.
+            <%= @blog.user.introduction %>
           </p>
         </div>
       </div>
