@@ -28,7 +28,7 @@ a {
   text-decoration: none;
 }
 
-.header,.nav,h2,.main-visual,.footer,.new-blog,.edit-blog,.users {
+.header,.nav,.main-visual,.footer,.new-blog,.edit-blog,.users {
   font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
 }
 
@@ -153,6 +153,18 @@ main {
     line-height: 30px;
   }
 }
+
+.search {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.search-index {
+  width: 520px;
+  margin-right: 50px;
+}
+
+
 
 .sidebar {
   width: 230px;

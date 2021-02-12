@@ -1,0 +1,56 @@
+<div class="search-index">
+  <% if @model == "user" %>
+    <h2 class="search-index__header">Users search for '<%= @value %>'</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Introduction</th>
+        </tr>
+      </thead>
+      <% @datas.each do |user| %>
+        <tbody>
+          <tr>
+            <td>
+              <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "img/no_image_square.jpg", size: '100x100' %>
+            </td>
+            <td>
+              <%= user.name %>
+            </td>
+            <td>
+              <%= user.introduction %>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  <% end %>
+  <% if @model == "blog" %>
+    <h2 class="search-index__header">Blogs search for '<%= @value %>'</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Contents</th>
+        </tr>
+      </thead>
+      <% @datas.each do |blog| %>
+        <tbody>
+          <tr>
+            <th>
+              <%= attachment_image_tag blog.user, :profile_image, format: 'jpeg', fallback: "img/no_image_square.jpg", size: '100x100' %>
+            </th>
+            <th>
+              <%= blog.title %>
+            </th>
+            <th>
+              <%= blog.body %>
+            </th>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  <% end %>
+</div>
