@@ -1,0 +1,39 @@
+<h2 class="single-blog__blogcomments-heading">Comments</h2>
+<div class="single-blog__blogcomments-count">
+  <%= "コメント：#{blog.blogcomments.count}件" %>
+</div>
+<div class="single-blog__blogcomments-table">
+  <table>
+    <tbody>
+      <% blog.blogcomments.each do |blogcomment| %>
+        <tr id="single-blog__blogcomments-table-destroy-<%= blogcomment.id %>" >
+          <td>
+            <%= link_to user_path(blogcomment.user_id) do %>
+              <%= attachment_image_tag blogcomment.user, :profile_image, format: "jpeg", fallback: "img/no_image_square.jpg", size: "40x40" %>
+            <% end %>
+            <br />
+            <%= link_to user_path(blogcomment.user_id) do %>
+              <%= blogcomment.user.name %>
+            <% end %>
+          </td>
+          <td>
+            <%= blogcomment.comment %>
+          </td>
+          <% if blogcomment.user == current_user %>
+            <td>
+              <%= link_to "削除", blog_blogcomment_path(blogcomment.blog, blogcomment.id), method: :delete, remote: true, "data-confirm" => "本当に消しますか？" %>
+            </td>
+          <% else %>
+            <td></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div id="single-blog__blogcomments-new">
+  <%= form_with(model: [blog, Blogcomment.new], remote: true, class: "single-blog__blogcomment-new-container") do |f| %>
+    <%= f.text_area :comment, rows: '5' %>
+    <%= f.submit "送信" %>
+  <% end %>
+</div>
