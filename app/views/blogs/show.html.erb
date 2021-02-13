@@ -17,7 +17,7 @@
           <%= @blog.created_at %>
           <!-- created_at部分 ここまで -->
         </p>
-        <p class="single-blog__box-favorite-<%= @blog.id %>">
+        <p class="single-blog__box-favorite favorite-<%= @blog.id %>">
           <%= render "favorites/list_favorite", blog: @blog %>
         </p>
       </div>
