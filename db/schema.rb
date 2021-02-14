@@ -26,16 +26,7 @@ ActiveRecord::Schema.define(version: 2021_02_14_034734) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
     t.string "image_id"
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.text "comment"
-    t.integer "user_id"
-    t.integer "blog_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
