@@ -27,6 +27,7 @@
       <div class="user-show__profile-relationship-btn">
         <% if @user != current_user %>
           <%= render 'users/list_follow_form', user: @user %>
+          <%= link_to 'チャットする', chat_path(@user.id) %>
         <% end %>
       </div>
     </section>
