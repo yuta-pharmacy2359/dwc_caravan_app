@@ -47,7 +47,7 @@
       <% @blogs.each do |blog| %>
         <div class="user-show__blogs-item">
           <div class="user-show__blogs-image">
-            <%= attachment_image_tag blog, :image, class: "user-show__blogs-image" %>
+            <%= attachment_image_tag blog, :image, format: 'jpeg', fallback: "img/no_image_square.jpg", size: '100x100', class: "user-show__blogs-image" %>
           </div>
           <section class="user-show__blog-text">
             <h3 class="user-show__blog-text-heading">

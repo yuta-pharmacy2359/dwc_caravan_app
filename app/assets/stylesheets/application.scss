@@ -359,6 +359,14 @@ main {
     text-align: center;
     line-height: 0.6;
   }
+  &__blogs-image {
+    width: 100px;
+    margin: 0;
+    display: inline-block;
+  }
+  &__blog-text {
+    display: inline-block;
+  }
 }
 
 .users {
@@ -380,4 +388,18 @@ main {
 
 .like-btn {
   color: gray;
+}
+
+.users-top {
+  width: 520px;
+  margin-right: 50px;
+  &__heading {
+    border-bottom: 8px solid #f7f7f7;
+    text-align: center;
+    line-height: 0.6;
+  }
+  &__welcome {
+    margin-top: 50px;
+    text-align: center;
+  }
 }
