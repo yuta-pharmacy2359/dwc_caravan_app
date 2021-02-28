@@ -68,7 +68,6 @@ a {
 .main-visual {
   width: 100%; /* 横幅いっぱい */
   height: 300px; /* 高さ300px */
-  background-image: url(img/mv.jpg);
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
   background-position: center; /* 背景画像を中央に配置 */
   &__content {
@@ -77,6 +76,27 @@ a {
     background-color: rgba(0, 0, 0, 0.5); /* 背景色を半透明の黒にする */
     text-align: center; /* 文字を中央揃えにする */
     padding-top: 105px; /* 上側の内側余白で垂直方向の位置を調整 */
+    position: absolute;
+    z-index: 999;
+  }
+  &__theTarget {
+    width: 100%;
+    position: relative;
+  }
+  &__theTarget-image1 {
+    background-image: url(img/test1.jpg);
+  }
+  &__theTarget-image2 {
+    background-image: url(img/test2.jpg);
+  }
+  &__theTarget-image3 {
+    background-image: url(img/test3.jpg);
+  }
+  &__theTarget-image4 {
+    background-image: url(img/test4.jpg);
+  }
+  &__theTarget-image5 {
+    background-image: url(img/test5.jpg);
   }
   &__text {
     color: #fff; /* 文字色を白に変更 */
